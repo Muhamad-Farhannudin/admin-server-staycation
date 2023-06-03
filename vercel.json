@@ -1,15 +1,4 @@
 {
-  "version": 2,
-  "builds": [
-      {
-          "source": "./app.js",
-          "use": "@vercel/node"
-      }
-  ],
-  "routes": [
-      {
-          "source": "/(.*)",
-          "destination": "/"
-      }
-  ]
+  "source": "/feedback/((?!general).*)",
+  "destination": "/"
 }
