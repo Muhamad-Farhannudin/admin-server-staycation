@@ -10,7 +10,7 @@ module.exports = {
   landingPage: async (req, res) => {
     try {
       const mostPicked = await Item.find()
-      .select("_id tittle country city price unit imageId")
+      .select("_id title country city price unit imageId")
       .limit(5)
       .populate({ path: "imageId", select: "_id imageUrl" });
 
@@ -21,7 +21,7 @@ module.exports = {
         path: "itemId",
         perDocumentLimit: 4,
         option: {sort:{sumBooking: -1}},
-        select: "_id tittle country city isPopular imageId",
+        select: "_id title country city isPopular imageId",
         populate: { 
           path: 'imageId',
           select: '_id imageUrl',

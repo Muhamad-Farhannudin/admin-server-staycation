@@ -105,5 +105,6 @@ describe("API ENDPOINT TESTING", () => {
         expect(res.body.booking.itemId).to.have.all.keys('_id', 'title', 'price', 'duration')
         done();
       })
+      console.log(res);
   })
 })
