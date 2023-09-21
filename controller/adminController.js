@@ -412,17 +412,18 @@ module.exports = {
   },
 
   addFeature: async (req, res) => {
-    const { name, type, itemId } = req.body;
-
+    const { name, qty, itemId } = req.body;
+    console.log("req.file");
+    console.log(req.file);
     try {
       if (!req.file) {
         req.flash('alertMessage', 'Image not found');
         req.flash('alertStatus', 'danger');
         res.redirect(`/admin/item/show-detail-item/${itemId}`);
       }
-      const activity = await Activity.create({
+      const feature = await Feature.create({
         name,
-        type,
+        qty,
         itemId,
         imageUrl: `images/${req.file.filename}`
       });
